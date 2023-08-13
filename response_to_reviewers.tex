@@ -1,0 +1,215 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{fullpage}
+\usepackage{mathrsfs}
+\usepackage{svg}
+\usepackage{xr}
+\usepackage{amsthm,cite,url,graphicx,booktabs,lipsum,color,bm,caption,subcaption,soul}
+\usepackage{pifont,tikz,paralist,multirow,amssymb}
+\usepackage{xifthen}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{siunitx}
+
+\usepackage{graphics}
+
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+% This refines the format of how the reviewer/point reference will appear.
+%\renewcommand{\thepoint}{C\,\thereviewer.\arabic{point}}
+
+\renewcommand{\thepoint}{Comment\,\thereviewer.\arabic{point}}
+
+% command declarations for reviewer points and our responses
+
+\newenvironment{comment_AE}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Associate Editor Comment~}} ---\ }
+   {\par }
+
+% \newcommand{\reviewersection}{\stepcounter{reviewer} \bigskip \noindent\rule{\textwidth}{0.6pt}
+%                   \section*{Reviewer \thereviewer}}
+
+\newcommand{\reviewersection}{\stepcounter{reviewer}
+                  \section*{Reviewer \thereviewer}}
+
+\newcommand{\horizontalline}{\noindent\rule{\textwidth}{0.6pt}}
+
+\newenvironment{point}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~\thepoint} } ---\ }
+   {\par }
+
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}   \bigskip \noindent 
+	{\textbf{Reviewer~Point~\thepoint} } ---~#1  }
+
+
+%% without box
+% \newenvironment{reply}
+%    {\medskip \noindent \color{blue} \textbf{Reply}:\  }
+%    {\medskip \par }
+
+
+%% with box
+\newenvironment{reply}[1]
+{
+   \begin{tcolorbox}[colback=gray!10, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt]
+   \textcolor{blue}{\textbf{Reply}:}#1
+   \end{tcolorbox}
+}
+
+\newenvironment{todo}[1]
+{
+   \begin{tcolorbox}[colback=yellow!20, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt]
+   \textcolor{red}{\textbf{Todo}:}#1
+   \end{tcolorbox}
+}
+
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
+	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+	\medskip \end{sf}}
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+
+\myexternaldocument{main}
+%\externaldocument[I-]{main}
+
+
+\def\thesubsubsection{\arabic{subsubsection}}
+\titleformat{\subsubsection}[runin]
+{\normalfont\bfseries}
+{\indent\thesubsubsection)}{0.5em}{}
+
+
+
+% ------------------------------------------ main context begins here -----------------------------------------------
+
+\begin{document}
+
+\section*{Authors' responses of the manuscript}
+\textbf{Manuscript ID:} \ \ \ Paper-ID-0001 \\
+\textbf{Title:} The title of the manuscript
+\vspace{10pt}
+
+The authors would like to express their sincere gratitude to the editor and reviewers for providing valuable comments and suggestions that have significantly contributed to the enhancement of the quality of this manuscript.
+We have diligently revised the manuscript in accordance with the comments and suggestions provided by the editor and reviewers.
+Please find below our detailed responses addressing each comment.
+In order to facilitate the reviewers' examination, substantial changes made in the revised version of the manuscript have been indicated below the corresponding comment.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\\
+\horizontalline
+\section*{Response to the reviewers}
+
+\reviewersection
+The general comments from the reviewer 1.
+The paper presents a xxx
+
+\begin{point}
+The comment 1 from the reviewer
+\end{point}
+
+\begin{todo}
+{
+We gratefully appreciate for your valuable suggestion.
+The xxx
+}
+\end{todo}
+
+\begin{point}
+The comment 2 from the reviewer
+\end{point}
+
+\begin{reply}
+{
+We gratefully appreciate for your valuable suggestion.
+The velocities of the objects are $v_1=\SI{0.1}{m/s}$, $v_2=\SI{1.2}{m/s}$, etc.
+Please refer to the book \cite{KajitaIntroduction2016}.
+}
+\end{reply}
+
+\begin{point}
+The comment 3 from the reviewer
+\end{point}
+
+\begin{todo}
+{
+We gratefully appreciate for your valuable suggestion.
+The xxx
+}
+\end{todo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+~\\
+\horizontalline
+\reviewersection
+
+The general comments from the reviewer 2.
+The paper presents a xxx
+
+\begin{point}
+The comment 1 from the reviewer
+\end{point}
+
+\begin{todo}
+{
+We gratefully appreciate for your valuable suggestion.
+The xxx
+}
+\end{todo}
+
+\begin{point}
+The comment 2 from the reviewer
+\end{point}
+
+\begin{reply}
+{
+We gratefully appreciate for your valuable suggestion.
+As shown in Figure \ref{fig: figure}, the xxx
+}
+\end{reply}
+
+\begin{figure}[hbt]
+\centering
+\includegraphics[trim=0cm 0cm 0cm 0cm,clip,width=12cm]{pic/figure.jpg}
+\caption{The caption of the figure.}
+\label{fig: figure}
+\end{figure}
+
+\begin{point}
+The comment 3 from the reviewer
+\end{point}
+
+\begin{reply}
+{
+We gratefully appreciate for your valuable suggestion.
+The xxx are xxx
+}
+\end{reply}
+
+
+~\\
+~\\
+\horizontalline
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv, reference.bib}
+\end{document}

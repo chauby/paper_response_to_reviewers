@@ -1,0 +1,10 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.blg
+*.bbl
+*.out
+response_to_reviewers.pdf
+.empty/*
