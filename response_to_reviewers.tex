@@ -13,6 +13,7 @@
 \usepackage{titlesec}
 \usepackage{tcolorbox}
 \usepackage{siunitx}
+\tcbuselibrary{breakable}
 
 \usepackage{graphics}
 
@@ -58,14 +59,14 @@
 %% with box
 \newenvironment{reply}[1]
 {
-   \begin{tcolorbox}[colback=gray!10, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt]
+   \begin{tcolorbox}[colback=gray!10, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt, breakable]
    \textcolor{blue}{\textbf{Reply}:}#1
    \end{tcolorbox}
 }
 
 \newenvironment{todo}[1]
 {
-   \begin{tcolorbox}[colback=yellow!20, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt]
+   \begin{tcolorbox}[colback=yellow!20, colframe=black, width=\linewidth, arc=1.2mm, auto outer arc, boxrule=0.3pt, breakable]
    \textcolor{red}{\textbf{Todo}:}#1
    \end{tcolorbox}
 }
